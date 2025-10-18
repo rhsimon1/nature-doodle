@@ -18,7 +18,7 @@ export default function UploadFile() {
       setUploading(true);
       const data = new FormData();
       data.set('file', file);
-      const uploadRequest = await fetch('/api/upload', {
+      const uploadRequest = await fetch('/api/files', {
         method: 'POST',
         body: data,
       });

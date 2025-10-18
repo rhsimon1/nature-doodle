@@ -1,5 +1,6 @@
 import './globals.css';
 import Navbar from './components/NavBar';
+import Header from './components/Header';
 import { Comfortaa } from 'next/font/google';
 
 const comfortaa = Comfortaa({
@@ -18,8 +19,11 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`light ${comfortaa.variable}`}>
       <body>
-        
-        {children}
+        <Header />
+        <Navbar />
+        <main className="ml-40 p-8">
+          {children}
+        </main>
       </body>
     </html>
   );

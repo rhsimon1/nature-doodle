@@ -1,8 +1,6 @@
 'use client';
-import React from 'react';
 import Map from '../components/Map';
 import UploadFile from './UploadFile';
-import Navbar from './NavBar';
 import DrawingCard from '../components/DrawingCard';
 import { MapPinIcon, TrendingUpIcon } from 'lucide-react';
 // Mock data for recent uploads

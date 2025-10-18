@@ -12,9 +12,9 @@ const DrawingCard = ({
   guesses,
 }) => {
   return (
-    <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
-      <img src={imageUrl} alt={title} className="w-full h-48 object-cover" />
-      <div className="p-4">
+    <div className="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+      <img src={imageUrl} alt={title} className="w-full h-80 object-cove object-cover" />
+      <div className="p-1">
         <h3 className="text-lg font-semibold text-green-800">{title}</h3>
         <div className="flex items-center mt-2 text-gray-600">
           <UserIcon className="w-4 h-4 mr-1" />

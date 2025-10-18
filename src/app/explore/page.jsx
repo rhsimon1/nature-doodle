@@ -1,4 +1,5 @@
-import Image from "next/image";
+import Image from 'next/image';
+import DrawingCard from '../components/DrawingCard';
 export default function Page() {
   return (
     <div>

@@ -10,6 +10,7 @@
 
 /* Default fallback if no theme is active */
 :root {
+
   --background: #f7fbf1;
   --foreground: #191d17;
 }
@@ -28,11 +29,13 @@
   --font-mono: var(--font-geist-mono);
 }
 
+
 body {
   background-color: var(--color-background);
   color: var(--color-foreground);
   font-family: var(--font-sans), sans-serif;
   transition: background-color 0.25s ease, color 0.25s ease;
+
 }
 
 /* Remap Tailwind’s built-in color utilities to your theme vars */

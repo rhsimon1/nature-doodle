@@ -86,9 +86,11 @@ for (let i = 0; i < amount; i++) {
 }
 
 
+
 export default function Page() {
   return (
     <div>
+
       <h1 style={{ textAlign: 'center', fontSize: '30px'}}>
         Explore
       </h1>
@@ -112,6 +114,9 @@ export default function Page() {
           ))}
           </div>
         </div>
+
+      <h1>This Is the Explore page</h1>
+
     </div>
   );
 }

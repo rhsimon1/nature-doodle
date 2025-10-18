@@ -10,7 +10,6 @@ export default function Header() {
           alt="Nature Doodle Logo"
           width={180}
           height={40}
-          priority
         />
       </Link>
     </header>

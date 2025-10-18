@@ -1,5 +1,5 @@
-import HomePage from "./components/HomePage";
 import Navbar from './components/NavBar';
+import HomePage from './components/HomePage';
 export default function Home() {
   return (
     <div> 

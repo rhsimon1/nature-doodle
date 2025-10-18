@@ -25,6 +25,7 @@ const nextConfig = {
       { protocol: 'https', hostname: 'gold-naval-hare-377.mypinata.cloud' },
     ],
   },
+  pageExtensions: ['js', 'jsx', 'ts', 'tsx'],
 };
 
 export default nextConfig;

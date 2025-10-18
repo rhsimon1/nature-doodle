@@ -1,38 +1,38 @@
-"use client";
-import React from "react";
-import Map from "../components/Map";
-import Navbar from "./NavBar";
-import DrawingCard from "../components/DrawingCard";
-import { MapPinIcon, TrendingUpIcon } from "lucide-react";
+'use client';
+import React from 'react';
+import Map from '../components/Map';
+import Navbar from './NavBar';
+import DrawingCard from '../components/DrawingCard';
+import { MapPinIcon, TrendingUpIcon } from 'lucide-react';
 // Mock data for recent uploads
 const recentUploads = [
   {
     id: 1,
-    title: "Forest Scene",
-    username: "naturelover",
-    location: "New York",
+    title: 'Forest Scene',
+    username: 'naturelover',
+    location: 'New York',
     imageUrl:
-      "https://images.unsplash.com/photo-1581337204873-1a68fa3b0efa?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
+      'https://images.unsplash.com/photo-1581337204873-1a68fa3b0efa?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80',
     likes: 24,
     guesses: 12,
   },
   {
     id: 2,
-    title: "Mountain View",
-    username: "artexplorer",
-    location: "Colorado",
+    title: 'Mountain View',
+    username: 'artexplorer',
+    location: 'Colorado',
     imageUrl:
-      "https://images.unsplash.com/photo-1508830524289-0adcbe822b40?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
+      'https://images.unsplash.com/photo-1508830524289-0adcbe822b40?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80',
     likes: 18,
     guesses: 8,
   },
   {
     id: 3,
-    title: "River Sketch",
-    username: "creativemind",
-    location: "Oregon",
+    title: 'River Sketch',
+    username: 'creativemind',
+    location: 'Oregon',
     imageUrl:
-      "https://images.unsplash.com/photo-1536323760109-ca8c07450053?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
+      'https://images.unsplash.com/photo-1536323760109-ca8c07450053?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80',
     likes: 32,
     guesses: 15,
   },
@@ -42,7 +42,7 @@ export default function HomePage() {
     <div className="container mx-auto px-4 py-8">
       <section className="mb-12 text-center">
         <h1 className="text-4xl font-bold text-green-800 mb-4">
-          Nature Doodle
+          Nature Doodle and Friends
         </h1>
         <p className="text-xl text-green-600 max-w-2xl mx-auto">
           Share your nature drawings and guess what others have created. Connect

@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import { pinata } from '../../../../utils/config';
-import { TrackOpTypes } from 'vue';
+ 
 
 export async function POST(request) {
   try {

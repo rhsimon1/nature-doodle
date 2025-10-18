@@ -41,8 +41,9 @@ export default function RootLayout({ children }) {
         </header>
 
         <body>
+          <Header></Header>
           <Navbar></Navbar>
-          {children}
+          <main className="ml-40 p-8">{children}</main>
         </body>
       </html>
     </ClerkProvider>

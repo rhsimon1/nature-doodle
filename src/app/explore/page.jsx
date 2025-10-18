@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import styles from './explore.module.css';
 import DrawingCard from '../components/DrawingCard';
+import Collapse from '../components/collapse.jsx';
 
 const locations = [
   'New York',
@@ -45,7 +46,7 @@ const randomimagefiles = [
 ]
 
 /*Changes the amoutn of user spoofs*/
-const amount = 12;
+const amount = 20;
 
 const recentUploads = [];
 
@@ -71,6 +72,16 @@ for (let i = 0; i < amount; i++) {
     imageUrl: `/nature_pictures/${randomimage}`,
     likes: likes,
     guesses: guesses,
+    description: <Collapse title="Description">
+      <p>
+        this is a testing paragraph
+        for this cool looking nature picture
+        thing here, that is displayed. Some kind of nature picture
+        or something or another along those lines
+        that is currently being described on the page
+      </p>
+      </Collapse>,
+    dateTime: new Date().toISOString(),
   });
 }
 
@@ -78,21 +89,13 @@ for (let i = 0; i < amount; i++) {
 export default function Page() {
   return (
     <div>
-      <div style={{ position: 'absolute', top: 20, right: 20, backgroundColor: 'white', border: '1px solid #ccc', padding: '10px', borderRadius: '8px', boxShadow: '0 0 10px rgba(0,0,0,0.1)' }}>
-        <h3 style={{ fontSize: '16px', marginBottom: '8px' }}>Locations</h3>
-        <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
-          {locations.map((loc, index) => (
-            <li key={index} style={{ marginBottom: '4px' }}>{loc}</li>
-          ))}
-        </ul>
-      </div>
       <h1 style={{ textAlign: 'center', fontSize: '30px'}}>
         Explore
       </h1>
       <div className="px-4 sm:px-6 lg:px-20">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-1">
           {recentUploads
-            .filter(upload => !['California', 'Texas'].includes(upload.location))
+            .filter(upload => ![].includes(upload.location))
             .map(upload => (
               <DrawingCard
                 key={upload.id}
@@ -103,6 +106,8 @@ export default function Page() {
                 imageUrl={upload.imageUrl}
                 likes={upload.likes}
                 guesses={upload.guesses}
+                description={upload.description}
+                dateTime={upload.dateTime}
               />
           ))}
           </div>
@@ -140,14 +145,14 @@ export default function Page() {
 */
 
 
-/* single bigger images
+/*
 export default function Page() {
   return (
     <div>
       <h1 style={{ textAlign: 'center', fontSize: '30px'}}>
         Explore
       </h1>
-      <div className="max-w-2xl mx-auto px-0.2">
+      <div className="max-w-2xl mx-auto px-0.6">
           {recentUploads.map((upload) => (
             <DrawingCard
               key={upload.id}

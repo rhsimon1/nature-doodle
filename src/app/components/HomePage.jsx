@@ -1,6 +1,7 @@
 'use client';
 import React from 'react';
 import Map from '../components/Map';
+import UploadFile from './UploadFile';
 import Navbar from './NavBar';
 import DrawingCard from '../components/DrawingCard';
 import { MapPinIcon, TrendingUpIcon } from 'lucide-react';
@@ -49,6 +50,7 @@ export default function HomePage() {
           with creative nature lovers around you!
         </p>
       </section>
+      <UploadFile></UploadFile>
       <section className="mb-12">
         <div className="flex items-center mb-6">
           <MapPinIcon className="w-6 h-6 text-green-600 mr-2" />

@@ -3,6 +3,8 @@ import Map from '../components/Map';
 import UploadFile from './UploadFile';
 import DrawingCard from '../components/DrawingCard';
 import { MapPinIcon, TrendingUpIcon } from 'lucide-react';
+import ProgressBox from './ProgressBox';
+
 // Mock data for recent uploads
 const recentUploads = [
   {
@@ -48,22 +50,38 @@ export default function HomePage() {
           with creative nature lovers around you!
         </p>
       </section>
-      <UploadFile></UploadFile>
       <section className="mb-12">
-        <div className="flex items-center mb-6">
+        <div className="flex flex-col items-start mb-6">
           <MapPinIcon className="w-6 h-6 text-green-600 mr-2" />
           <h2 className="text-2xl font-bold text-green-800">
             Doodles Near You
           </h2>
+          <div className="flex space-x-3.5">
+            <ProgressBox
+              title={'Total Doodles'}
+              count={5}
+              color={'#e6f1d7'}
+            ></ProgressBox>
+            <ProgressBox
+              title={'Other Doodles'}
+              count={17}
+              color={'#85cd7f'}
+            ></ProgressBox>
+            <ProgressBox
+              title={'Local Doodler Rank'}
+              count={1}
+              color={'#869168'}
+            ></ProgressBox>
+          </div>
         </div>
-        <div className="bg-white rounded-lg shadow-md overflow-hidden h-[500px]">
+        <div className="bg-white rounded-lg shadow-md overflow-hidden h-[500px] w-[800px]">
           <Map />
         </div>
       </section>
       <section>
         <div className="flex items-center mb-6">
           <TrendingUpIcon className="w-6 h-6 text-green-600 mr-2" />
-          <h2 className="text-2xl font-bold text-green-800">Recent Uploads</h2>
+          <h2 className="text-2xl font-bold text-green-800">Recent Doodles</h2>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {recentUploads.map((upload) => (
@@ -76,6 +94,7 @@ export default function HomePage() {
               imageUrl={upload.imageUrl}
               likes={upload.likes}
               guesses={upload.guesses}
+              displayBottom={false}
             />
           ))}
         </div>

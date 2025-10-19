@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { Button } from '@/components/ui/button';
 
 export default function UploadFile() {
   const [file, setFile] = useState();
@@ -40,9 +41,15 @@ export default function UploadFile() {
   return (
     <main className="m-auto flex items-center justify-center">
       <input type="file" onChange={handleChange} />
-      <button type="button" disabled={uploading} onClick={uploadFile}>
+      <Button
+        type="button"
+        disabled={uploading}
+        onClick={uploadFile}
+        className="w-1/2 bg-green-100 text-green-800 font-medium hover:bg-green-200 transition"
+      >
         {uploading ? 'Uploading...' : 'Upload'}
-      </button>
+      </Button>
+
       {uploadSuccess && <p className="text-green-900 ml-2">Success</p>}
     </main>
   );

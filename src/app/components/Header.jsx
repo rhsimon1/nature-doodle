@@ -10,13 +10,13 @@ import {
 } from '@clerk/nextjs';
 export default function Header() {
   return (
-    <header className="flex items-center justify-center px-6 py-6 bg-primary-container">
-      <Link href="/" className="flex justify-center w-full">
+    <header className="flex items-center justify-center px-6 py-6 bg-primary ">
+      <Link href="/" className="flex justify-start w-full">
         <Image
           src="/logo.svg"
           alt="Nature Doodle Logo"
-          width={180}
-          height={40}
+          width={280}
+          height={200}
           priority
         />
       </Link>

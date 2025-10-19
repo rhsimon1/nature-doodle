@@ -2,14 +2,7 @@ import './globals.css';
 import Navbar from './components/NavBar';
 import Header from './components/Header';
 import { Comfortaa } from 'next/font/google';
-import {
-  ClerkProvider,
-  SignInButton,
-  SignUpButton,
-  SignedIn,
-  SignedOut,
-  UserButton,
-} from '@clerk/nextjs';
+import { ClerkProvider } from '@clerk/nextjs';
 
 const comfortaa = Comfortaa({
   subsets: ['latin'],
@@ -28,8 +21,10 @@ export default function RootLayout({ children }) {
       <html lang="en" className={`light ${comfortaa.variable}`}>
         <body>
           <Header></Header>
-          <Navbar></Navbar>
-          <main className="ml-40 p-8">{children}</main>
+          <div className="bg-primary min-h-100">
+            <Navbar></Navbar>
+            <main className="ml-40 p-8 bg-background">{children}</main>
+          </div>
         </body>
       </html>
     </ClerkProvider>

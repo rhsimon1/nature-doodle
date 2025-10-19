@@ -7,8 +7,7 @@ export default function NavBar() {
       <nav className="flex flex-col gap-5 p-10 bg-primary h-full w-40">
         <Link
           href="/"
-          className="flex flex-col items-center gap-2 w-full px-4 py-3 rounded-lg hover:bg-yellow-300 transition-colors"
-        >
+          className="flex flex-col items-center gap-2 w-full px-4 py-3 rounded-lg hover:bg-outline transition-colors">
           <Image
             src="/user-home.svg"
             alt="Home"
@@ -19,8 +18,7 @@ export default function NavBar() {
         </Link>
         <Link
           href="/explore"
-          className="flex flex-col items-center gap-2 w-full px-4 py-3 rounded-lg hover:bg-yellow-300 transition-colors"
-        >
+          className="flex flex-col items-center gap-2 w-full px-4 py-3 rounded-lg hover:bg-outline transition-colors">
           <Image
             src="/explore.svg"
             alt="Explore icon"
@@ -31,8 +29,7 @@ export default function NavBar() {
         </Link>
         <Link
           href="/post"
-          className="flex flex-col items-center gap-2 w-full px-4 py-3 rounded-lg hover:bg-yellow-300 transition-colors"
-        >
+          className="flex flex-col items-center gap-2 w-full px-4 py-3 rounded-lg hover:bg-outline transition-colors">
           <Image
             src="/pencil-solid-full.svg"
             alt="Post icon"

@@ -1,6 +1,6 @@
 @import 'tailwindcss';
 
-/* Bring in all your theme files */
+/* Import all theme files */
 @import './styles/light-hc.css';
 @import './styles/light-mc.css';
 @import './styles/dark-hc.css';
@@ -8,68 +8,118 @@
 @import './styles/dark.css';
 @import './styles/light.css';
 
-/* Default fallback if no theme is active */
+/* Fallback (if no theme active) */
 :root {
-
   --background: #f7fbf1;
   --foreground: #191d17;
 }
 
-/* Map Tailwind-style names to your theme variables */
+/* Tailwind Theme Variable Mapping */
 @theme inline {
+  /* Core backgrounds / surfaces */
   --color-background: var(--md-sys-color-background, var(--background));
-  --color-foreground: var(--md-sys-color-on-background, var(--foreground));
+  --color-on-background: var(--md-sys-color-on-background, var(--foreground));
   --color-surface: var(--md-sys-color-surface, var(--background));
   --color-on-surface: var(--md-sys-color-on-surface, var(--foreground));
-  --color-primary: var(--md-sys-color-primary, #3c6839);
-  --color-on-primary: var(--md-sys-color-on-primary, #fff);
-  --color-secondary: var(--md-sys-color-secondary, #53634f);
-  --color-on-secondary: var(--md-sys-color-on-secondary, #fff);
+  --color-surface-variant: var(--md-sys-color-surface-variant);
+  --color-on-surface-variant: var(--md-sys-color-on-surface-variant);
+
+  /* Primary */
+  --color-primary: var(--md-sys-color-primary);
+  --color-on-primary: var(--md-sys-color-on-primary);
+  --color-primary-container: var(--md-sys-color-primary-container);
+  --color-on-primary-container: var(--md-sys-color-on-primary-container);
+  --color-primary-fixed: var(--md-sys-color-primary-fixed);
+  --color-on-primary-fixed: var(--md-sys-color-on-primary-fixed);
+  --color-primary-fixed-dim: var(--md-sys-color-primary-fixed-dim);
+  --color-on-primary-fixed-variant: var(
+    --md-sys-color-on-primary-fixed-variant
+  );
+
+  /* Secondary */
+  --color-secondary: var(--md-sys-color-secondary);
+  --color-on-secondary: var(--md-sys-color-on-secondary);
+  --color-secondary-container: var(--md-sys-color-secondary-container);
+  --color-on-secondary-container: var(--md-sys-color-on-secondary-container);
+  --color-secondary-fixed: var(--md-sys-color-secondary-fixed);
+  --color-on-secondary-fixed: var(--md-sys-color-on-secondary-fixed);
+  --color-secondary-fixed-dim: var(--md-sys-color-secondary-fixed-dim);
+  --color-on-secondary-fixed-variant: var(
+    --md-sys-color-on-secondary-fixed-variant
+  );
+
+  /* Tertiary */
+  --color-tertiary: var(--md-sys-color-tertiary);
+  --color-on-tertiary: var(--md-sys-color-on-tertiary);
+  --color-tertiary-container: var(--md-sys-color-tertiary-container);
+  --color-on-tertiary-container: var(--md-sys-color-on-tertiary-container);
+  --color-tertiary-fixed: var(--md-sys-color-tertiary-fixed);
+  --color-on-tertiary-fixed: var(--md-sys-color-on-tertiary-fixed);
+  --color-tertiary-fixed-dim: var(--md-sys-color-tertiary-fixed-dim);
+  --color-on-tertiary-fixed-variant: var(
+    --md-sys-color-on-tertiary-fixed-variant
+  );
+
+  /* Error */
+  --color-error: var(--md-sys-color-error);
+  --color-on-error: var(--md-sys-color-on-error);
+  --color-error-container: var(--md-sys-color-error-container);
+  --color-on-error-container: var(--md-sys-color-on-error-container);
+
+  /* Outline / Dividers */
+  --color-outline: var(--md-sys-color-outline);
+  --color-outline-variant: var(--md-sys-color-outline-variant);
+
+  /* Inverse */
+  --color-inverse-surface: var(--md-sys-color-inverse-surface);
+  --color-inverse-on-surface: var(--md-sys-color-inverse-on-surface);
+  --color-inverse-primary: var(--md-sys-color-inverse-primary);
+
+  /* Shadows / Scrims */
+  --color-shadow: var(--md-sys-color-shadow);
+  --color-scrim: var(--md-sys-color-scrim);
+
+  /* Surface Containers */
+  --color-surface-dim: var(--md-sys-color-surface-dim);
+  --color-surface-bright: var(--md-sys-color-surface-bright);
+  --color-surface-container-lowest: var(
+    --md-sys-color-surface-container-lowest
+  );
+  --color-surface-container-low: var(--md-sys-color-surface-container-low);
+  --color-surface-container: var(--md-sys-color-surface-container);
+  --color-surface-container-high: var(--md-sys-color-surface-container-high);
+  --color-surface-container-highest: var(
+    --md-sys-color-surface-container-highest
+  );
+
+  /* Fonts */
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-
+/* Global element defaults */
 body {
   background-color: var(--color-background);
-  color: var(--color-foreground);
+  color: var(--color-on-background);
   font-family: var(--font-sans), sans-serif;
   transition: background-color 0.25s ease, color 0.25s ease;
-
 }
 
-/* Remap Tailwind’s built-in color utilities to your theme vars */
+/* Optional: remap Tailwind color classes to theme */
 .bg-white {
-  background-color: var(--md-sys-color-surface) !important;
+  background-color: var(--color-surface) !important;
 }
-
-.text-green-800,
-.text-green-700,
-.text-green-600 {
-  color: var(--md-sys-color-primary) !important;
-}
-
-.text-green-500,
-.text-green-400 {
-  color: var(--md-sys-color-on-primary) !important;
-}
-
 .text-black {
-  color: var(--md-sys-color-on-surface) !important;
+  color: var(--color-on-surface) !important;
 }
-
 .text-white {
-  color: var(--md-sys-color-on-primary) !important;
+  color: var(--color-on-primary) !important;
 }
-
-/* optional: override bg-black/white to theme */
 .bg-black {
-  background-color: var(--md-sys-color-on-surface) !important;
+  background-color: var(--color-on-surface) !important;
 }
 
-/* Subtle card shadows */
+/* Subtle elevation */
 .shadow-md {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
 }
-
-

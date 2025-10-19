@@ -1,6 +1,6 @@
 .light {
   /* Brand / Primary */
-  --md-sys-color-primary: #596b41; /* deep leaf */
+  --md-sys-color-primary: #e6f1d7; /* deep leaf */
   --md-sys-color-on-primary: #ffffff;
   --md-sys-color-primary-container: #d5eede; /* mint panels (cards, chips) */
   --md-sys-color-on-primary-container: #223018;
@@ -14,7 +14,7 @@
   /* Tertiary (action/CTA green) */
   --md-sys-color-tertiary: #85cd7f;
   --md-sys-color-on-tertiary: #0d2a13;
-  --md-sys-color-tertiary-container: #d5eede; /* keep mint as soft tertiary bg */
+  --md-sys-color-tertiary-container: #f7fbf1; /* keep mint as soft tertiary bg */
   --md-sys-color-on-tertiary-container: #1f3a26;
 
   /* Error (kept neutral) */

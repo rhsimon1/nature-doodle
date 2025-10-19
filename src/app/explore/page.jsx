@@ -43,14 +43,12 @@ const randomimagefiles = [
   '/whilte_flower.jpg',
   '/giaraff.jpg',
   '/blue_bird.jpg',
-]
+];
 
 /*Changes the amoutn of user spoofs*/
 const amount = 20;
 
 const recentUploads = [];
-
-
 
 for (let i = 0; i < amount; i++) {
   const title =
@@ -62,7 +60,8 @@ for (let i = 0; i < amount; i++) {
 
   const likes = Math.floor(Math.random() * 50) + 1;
   const guesses = Math.floor(Math.random() * 50) + 1;
-  const randomimage = randomimagefiles[Math.floor(Math.random() * randomimagefiles.length)];
+  const randomimage =
+    randomimagefiles[Math.floor(Math.random() * randomimagefiles.length)];
 
   recentUploads.push({
     id: i,
@@ -72,33 +71,29 @@ for (let i = 0; i < amount; i++) {
     imageUrl: `/nature_pictures/${randomimage}`,
     likes: likes,
     guesses: guesses,
-    description: <Collapse title="Description">
-      <p>
-        this is a testing paragraph
-        for this cool looking nature picture
-        thing here, that is displayed. Some kind of nature picture
-        or something or another along those lines
-        that is currently being described on the page
-      </p>
-      </Collapse>,
+    description: (
+      <Collapse title="Description">
+        <p>
+          this is a testing paragraph for this cool looking nature picture thing
+          here, that is displayed. Some kind of nature picture or something or
+          another along those lines that is currently being described on the
+          page
+        </p>
+      </Collapse>
+    ),
     dateTime: new Date().toISOString(),
   });
 }
 
-
-
 export default function Page() {
   return (
     <div>
-
-      <h1 style={{ textAlign: 'center', fontSize: '30px'}}>
-        Explore
-      </h1>
+      <h1 className="text-center text-[30px] my-3">Explore</h1>
       <div className="px-4 sm:px-6 lg:px-20">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-1">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-1">
           {recentUploads
-            .filter(upload => ![].includes(upload.location))
-            .map(upload => (
+            .filter((upload) => ![].includes(upload.location))
+            .map((upload) => (
               <DrawingCard
                 key={upload.id}
                 id={upload.id}
@@ -111,17 +106,12 @@ export default function Page() {
                 description={upload.description}
                 dateTime={upload.dateTime}
               />
-          ))}
-          </div>
+            ))}
         </div>
-
-      <h1>This Is the Explore page</h1>
-
+      </div>
     </div>
   );
 }
-
-
 
 /* funny
 export default function Page() {
@@ -148,7 +138,6 @@ export default function Page() {
   );
 }
 */
-
 
 /*
 export default function Page() {

@@ -4,40 +4,10 @@ import UploadFile from './UploadFile';
 import DrawingCard from '../components/DrawingCard';
 import { MapPinIcon, TrendingUpIcon } from 'lucide-react';
 import ProgressBox from './ProgressBox';
+import DisplayImages from './DisplayImages';
 
 // Mock data for recent uploads
-const recentUploads = [
-  {
-    id: 1,
-    title: 'Forest Scene',
-    username: 'naturelover',
-    location: 'New York',
-    imageUrl:
-      'https://images.unsplash.com/photo-1581337204873-1a68fa3b0efa?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80',
-    likes: 24,
-    guesses: 12,
-  },
-  {
-    id: 2,
-    title: 'Mountain View',
-    username: 'artexplorer',
-    location: 'Colorado',
-    imageUrl:
-      'https://images.unsplash.com/photo-1508830524289-0adcbe822b40?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80',
-    likes: 18,
-    guesses: 8,
-  },
-  {
-    id: 3,
-    title: 'River Sketch',
-    username: 'creativemind',
-    location: 'Oregon',
-    imageUrl:
-      'https://images.unsplash.com/photo-1536323760109-ca8c07450053?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80',
-    likes: 32,
-    guesses: 15,
-  },
-];
+
 export default function HomePage() {
   return (
     <div className="container mx-auto px-4 py-8">
@@ -56,7 +26,7 @@ export default function HomePage() {
           <h2 className="text-2xl font-bold text-green-800">
             Doodles Near You
           </h2>
-          <div className="flex space-x-3.5">
+          <div className="flex space-x-5">
             <ProgressBox
               title={'Total Doodles'}
               count={5}
@@ -83,20 +53,8 @@ export default function HomePage() {
           <TrendingUpIcon className="w-6 h-6 text-green-600 mr-2" />
           <h2 className="text-2xl font-bold text-green-800">Recent Doodles</h2>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {recentUploads.map((upload) => (
-            <DrawingCard
-              key={upload.id}
-              id={upload.id}
-              title={upload.title}
-              username={upload.username}
-              location={upload.location}
-              imageUrl={upload.imageUrl}
-              likes={upload.likes}
-              guesses={upload.guesses}
-              displayBottom={false}
-            />
-          ))}
+        <div className="px-4 sm:px-6 lg:px-20">
+          <DisplayImages count={3} />
         </div>
       </section>
     </div>

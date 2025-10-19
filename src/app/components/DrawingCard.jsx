@@ -37,8 +37,28 @@ const DrawingCard = ({
           className="w-full h-65 object-cover rounded-md"
         />
       </div>
+      <div className="p-4">
+        <h3 className="text-lg font-semibold text-green-800">{title}</h3>
 
-      {/* Bottom Section: Title, Date/Time, Description, Likes/Guesses, Button */}
+        {dateTime && (
+          <p className="text-sm text-gray-500 mt-1">
+            {new Date(dateTime).toLocaleString()}
+          </p>
+        )}
+
+        {description && (
+          <p className="text-sm text-gray-700 mt-2">{description}</p>
+        )}
+
+        <div className="flex justify-between items-center mt-3 text-gray-600">
+          <div className="flex items-center">
+            <ThumbsUpIcon className="w-4 h-4 mr-1" />
+            <span className="text-sm">{likes} likes</span>
+          </div>
+          <div className="text-sm">{guesses} guesses</div>
+        </div>
+      </div>
+
       {displayBottom ? (
         <div className="p-4">
           <h3 className="text-lg font-semibold text-green-800">{title}</h3>

@@ -1,3 +1,5 @@
+'use client';
+import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import UploadFile from './UploadFile';
@@ -19,7 +21,21 @@ import {
   CardTitle,
 } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
+import { useRouter, usePathname } from 'next/navigation';
 export default function NavBar() {
+  const [open, setOpen] = useState(false);
+  const router = useRouter();
+  const pathname = usePathname();
+  const handleOpenChange = (isOpen) => {
+    setOpen(isOpen);
+    if (!isOpen) {
+      if (pathname === '/my-posts') {
+        router.refresh();
+      } else {
+        router.push('/');
+      }
+    }
+  };
   return (
     <div className="fixed top-25 pt-5 left-0 h-screen">
       <nav className="flex flex-col gap-5 p-10 bg-primary h-full w-40">
@@ -37,7 +53,14 @@ export default function NavBar() {
           <Image src="/explore.svg" alt="Explore icon" width={26} height={26} />
           Explore
         </Link>
-        <Dialog>
+        <Link
+          href="/my-posts"
+          className="flex flex-col items-center gap-2 w-full px-4 py-3 rounded-lg hover:bg-yellow-300 transition-colors"
+        >
+          <Image src="/profile.svg" alt="Explore icon" width={26} height={26} />
+          Profile
+        </Link>
+        <Dialog open={open} onOpenChange={handleOpenChange}>
           <DialogTrigger className="ml-5.5">
             <Image
               src="/pencil-solid-full.svg"

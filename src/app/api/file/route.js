@@ -1,13 +1,13 @@
 import { NextResponse } from 'next/server';
 import { pinata } from '../../../../utils/config';
- 
+import { revalidatePath } from 'next/cache';
 
 export async function POST(request) {
   try {
     const data = await request.formData();
     const file = data.get('file');
     const { cid } = await pinata.upload.public.file(file);
-
+    revalidatePath('/my-posts');
     const url = await pinata.gateways.convert(cid);
     return NextResponse.json(url, { status: 200 });
   } catch (e) {

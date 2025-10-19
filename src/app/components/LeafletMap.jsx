@@ -13,42 +13,40 @@ L.Icon.Default.mergeOptions({
   iconUrl: 'https://unpkg.com/leaflet@1.7.1/dist/images/marker-icon.png',
   shadowUrl: 'https://unpkg.com/leaflet@1.7.1/dist/images/marker-shadow.png',
 });
-
-// Your mock data (unchanged)
 const mockUserUploads = [
   {
     id: 1,
-    lat: 40.7128,
-    lng: -74.006,
+    lat: 39.1836,
+    lng: -96.5717,
     username: 'naturelover',
-    title: 'Forest Scene',
+    title: 'Flint Hills Forest',
     preview:
       'https://images.unsplash.com/photo-1581337204873-1a68fa3b0efa?auto=format&fit=crop&w=200&q=80',
   },
   {
     id: 2,
-    lat: 40.7228,
-    lng: -74.016,
+    lat: 39.1924,
+    lng: -96.5981,
     username: 'artexplorer',
-    title: 'Mountain View',
+    title: 'Konza Prairie View',
     preview:
       'https://images.unsplash.com/photo-1508830524289-0adcbe822b40?auto=format&fit=crop&w=200&q=80',
   },
   {
     id: 3,
-    lat: 40.7028,
-    lng: -73.996,
+    lat: 39.2042,
+    lng: -96.5843,
     username: 'creativemind',
-    title: 'River Sketch',
+    title: 'Kansas River Sketch',
     preview:
       'https://images.unsplash.com/photo-1536323760109-ca8c07450053?auto=format&fit=crop&w=200&q=80',
   },
   {
     id: 4,
-    lat: 40.7328,
-    lng: -74.026,
+    lat: 39.1758,
+    lng: -96.5601,
     username: 'doodlemaster',
-    title: 'Wildlife Drawing',
+    title: 'Wildlife at Sunset Zoo',
     preview:
       'https://images.unsplash.com/photo-1582201943055-e8e3e7925279?auto=format&fit=crop&w=200&q=80',
   },
@@ -140,23 +138,34 @@ export default function LeafletMap() {
         )}
 
         {/* Existing upload markers */}
-        {mockUserUploads.map((u) => (
-          <Marker key={u.id} position={[u.lat, u.lng]}>
-            <Popup>
-              <div className="w-48">
-                <img
-                  src={u.preview}
-                  alt={u.title}
-                  className="w-full h-32 object-cover rounded-t-md"
-                />
-                <div className="p-2 bg-white rounded-b-md">
-                  <h3 className="font-bold text-green-800">{u.title}</h3>
-                  <p className="text-sm text-gray-600">by {u.username}</p>
+        {mockUserUploads.map((u) => {
+          // create an image-based custom icon
+          const imageIcon = L.icon({
+            iconUrl: '/nature_pictures/butterfly.JPG', // or `/blue_bird.jpg` or the Pinata URL
+            iconSize: [40, 40], // adjust marker size
+            iconAnchor: [20, 40], // center bottom
+            popupAnchor: [0, -40], // make popup appear above
+            className: ' rounded border border-white shadow-md', // Tailwind still works
+          });
+
+          return (
+            <Marker key={u.id} position={[u.lat, u.lng]} icon={imageIcon}>
+              <Popup>
+                <div className="w-48">
+                  <img
+                    src={u.preview}
+                    alt={u.title}
+                    className="w-full h-32 object-cover rounded-t-md"
+                  />
+                  <div className="p-2 bg-white rounded-b-md">
+                    <h3 className="font-bold text-green-800">{u.title}</h3>
+                    <p className="text-sm text-gray-600">by {u.username}</p>
+                  </div>
                 </div>
-              </div>
-            </Popup>
-          </Marker>
-        ))}
+              </Popup>
+            </Marker>
+          );
+        })}
       </MapContainer>
     </div>
   );

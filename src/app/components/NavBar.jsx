@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function NavBar() {
   return (
@@ -6,26 +7,28 @@ export default function NavBar() {
       <nav className="flex flex-col gap-5 p-10 bg-primary h-full w-40">
         <Link
           href="/"
-          className="w-full px-4 py-2 rounded-lg hover:bg-yellow-300 transition-colors"
+          className="flex flex-col items-center gap-2 w-full px-4 py-3 rounded-lg hover:bg-yellow-300 transition-colors"
         >
+          <Image src="/user-home.svg" alt="Home" width={26} height={26} />
           Home
         </Link>
         <Link
           href="/explore"
-          className="w-full px-4 py-2 rounded-lg hover:bg-yellow-300 transition-colors"
+          className="flex flex-col items-center gap-2 w-full px-4 py-3 rounded-lg hover:bg-yellow-300 transition-colors"
         >
+          <Image src="/explore.svg" alt="Explore icon" width={26} height={26} />
           Explore
         </Link>
         <Link
-          href="/profile"
-          className="w-full px-4 py-2 rounded-lg hover:bg-yellow-300 transition-colors"
+          href="/post"
+          className="flex flex-col items-center gap-2 w-full px-4 py-3 rounded-lg hover:bg-yellow-300 transition-colors"
         >
-          Profile
-        </Link>
-        <Link
-          href="/Post"
-          className="w-full px-4 py-2 rounded-lg hover:bg-yellow-300 transition-colors"
-        >
+          <Image
+            src="/pencil-solid-full.svg"
+            alt="Post icon"
+            width={26}
+            height={26}
+          />
           Post
         </Link>
       </nav>
